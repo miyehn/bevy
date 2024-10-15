@@ -346,6 +346,13 @@ impl AssetInfos {
 
     /// Returns `true` if the asset at this path should be reloaded
     pub(crate) fn should_reload(&self, path: &AssetPath) -> bool {
+
+        // [myn] HACK:
+        if path.get_full_extension() == Some(String::from("glb")) {
+            println!("actually, don't reload gltf files");
+            return false;
+        }
+
         if self.is_path_alive(path) {
             return true;
         }
