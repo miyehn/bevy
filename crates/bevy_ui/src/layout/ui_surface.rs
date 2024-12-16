@@ -118,10 +118,12 @@ impl UiSurface {
             if let Some(taffy_node) = self.entity_to_taffy.get(child) {
                 taffy_children.push(*taffy_node);
             } else {
+                /* [myn] HACK: meh too lazy to fix in game code
                 warn!(
                     "Unstyled child `{child}` in a UI entity hierarchy. You are using an entity \
 without UI components as a child of an entity with UI components, results may be unexpected."
                 );
+                 */
             }
         }
 
